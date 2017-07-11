@@ -1,0 +1,598 @@
+﻿
+@model List<mypharmacy.Models.medicine>
+
+@{
+    ViewBag.Title = "Home";
+   // Layout = "~/Views/Shared/_AdminPharmacylayout.cshtml";
+
+    if (Session["Role"] == "user")
+    {
+        Layout = "~/Views/Shared/_Pharmacylayout.cshtml";
+    }
+    else if (Session["Role"] == "admin")
+    {
+        Layout = "~/Views/Shared/_AdminPharmacylayout.cshtml";
+    }
+    else
+    {
+
+        Layout = "~/Views/Shared/_Pharmacylayout.cshtml";
+
+    }
+}
+@Html.Raw(TempData["msg"]);
+    <!-- header -->
+    
+    <!-- banner -->
+    <div class="banner-grid">
+        <div id="visual">
+            <div class="slide-visual">
+                <!-- Slide Image Area (1000 x 424) -->
+                <ul class="slide-group">
+                    <li><img class="img-responsive" src="~/images/ba1.jpg" alt="Dummy Image" /></li>
+                    <li><img class="img-responsive" src="~/images/ba2.jpg" alt="Dummy Image" /></li>
+                    <li><img class="img-responsive" src="~/images/ba3.jpg" alt="Dummy Image" /></li>
+                </ul>
+
+                <!-- Slide Description Image Area (316 x 328) -->
+                <div class="script-wrap">
+                    <ul class="script-group">
+                        <li><div class="inner-script"><img class="img-responsive" src="~/images/baa1.jpg" alt="Dummy Image" /></div></li>
+                        <li><div class="inner-script"><img class="img-responsive" src="~/images/baa2.jpg" alt="Dummy Image" /></div></li>
+                        <li><div class="inner-script"><img class="img-responsive" src="~/images/baa3.jpg" alt="Dummy Image" /></div></li>
+                    </ul>
+                    <div class="slide-controller">
+                        <a href="#" class="btn-prev"><img src="~/images/btn_play.png" alt="Start Slide" /></a>
+                        <a href="#" class="btn-pause"><img src="~/images/btn_pause.png" alt="Pause Slide" /></a>
+                        <a href="#" class="btn-next"><img src="~/images/btn_next.png" alt="Next Slide" /></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <script type="text/javascript" src="~/Scripts/pignose.layerslider.js"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+            $(window).load(function () {
+                $('#visual').pignoseLayerSlider({
+                    play: '.btn-play',
+                    pause: '.btn-pause',
+                    next: '.btn-next',
+                    prev: '.btn-prev'
+                });
+            });
+            //]]>
+        </script>
+
+    </div>
+    <!-- //banner -->
+    <!-- content -->
+
+    <div class="new_arrivals">
+        <div class="container">
+            <h3><span>new </span>arrivals</h3>
+            <p>We offers Special discounts on new arrivals products.</p>
+
+        </div>
+    </div>
+    <!-- //content -->
+    <!-- content-bottom -->
+
+    <div class="content-bottom">
+        <div class="col-md-7 content-lgrid">
+            <div class="col-sm-6 content-img-left text-center">
+                <div class="content-grid-effect slow-zoom vertical">
+                    <div class="img-box"><img src="~/images/p1.jpg" alt="image" class="img-responsive zoom-img"></div>
+                    <div class="info-box">
+                        <div class="info-content simpleCart_shelfItem">
+                            <h4>Dissection kit</h4>
+                            <span class="separator"></span>
+                            <p><span class="item_price">$130</span></p>
+                            <span class="separator"></span>
+                            <a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 content-img-right">
+                <h3>Special Offers and 20%<span>Discount On</span> Dissection kit</h3>
+            </div>
+
+            <div class="col-sm-6 content-img-right">
+                <h3>Buy 1 get 1  free on <span> Healthcare</span> Products</h3>
+            </div>
+            <div class="col-sm-6 content-img-left text-center">
+                <div class="content-grid-effect slow-zoom vertical">
+                    <div class="img-box"><img src="~/images/p2.jpg" alt="image" class="img-responsive zoom-img"></div>
+                    <div class="info-box">
+                        <div class="info-content simpleCart_shelfItem">
+                            <h4>Healthcare</h4>
+                            <span class="separator"></span>
+                            <p><span class="item_price">$150</span></p>
+                            <span class="separator"></span>
+                            <a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-5 content-rgrid text-center">
+            <div class="content-grid-effect slow-zoom vertical">
+                <div class="img-box"><img src="~/images/p4.jpg" alt="image" class="img-responsive zoom-img"></div>
+                <div class="info-box">
+                    <div class="info-content simpleCart_shelfItem">
+                        <h4>Gulcose Meter</h4>
+                        <span class="separator"></span>
+                        <p><span class="item_price">$150</span></p>
+                        <span class="separator"></span>
+                        <a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- //content-bottom -->
+    <!-- product-nav -->
+
+    <div class="product-easy">
+        <div class="container">
+
+            <script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });
+
+            </script>
+            <div class="sap_tabs">
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+                        <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Medicines</span></li>
+                        <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Surgical Instruments</span></li>
+                        <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Healthcare</span></li>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[0].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[0].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[0].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[0].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[0].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[0].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[1].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[1].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[1].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[1].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[1].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[1].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[2].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[2].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[2].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[2].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[2].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[2].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[3].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[3].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[3].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[3].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[3].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[3].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 product-men yes-marg ">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[4].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[4].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[4].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product  ">
+                                        <h4><a href="single.html">@Model[4].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[4].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[4].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men yes-marg">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[5].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[5].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[5].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[5].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[5].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[5].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men yes-marg">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[6].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[6].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[6].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[6].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[6].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[6].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men yes-marg">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@Model[7].medicineimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@Model[7].medicineimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@Model[7].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@Model[7].medicinename</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Model[7].medicineprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@Model[7].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                       
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[0].surgicalimage"  alt=" " class=" pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[0].surgicalimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.surgicallist[0].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.surgicallist[0].surgicalname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.surgicallist[0].surgicalprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.surgicallist[0].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[1].surgicalimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[1].surgicalimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.surgicallist[1].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.surgicallist[1].surgicalname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.surgicallist[1].surgicalprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.surgicallist[1].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[2].surgicalimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[2].surgicalimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.surgicallist[2].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.surgicallist[2].surgicalname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price" >@ViewBag.surgicallist[2].surgicalprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.surgicallist[2].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[3].surgicalimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[3].surgicalimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.surgicallist[3].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.surgicallist[3].surgicalname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.surgicallist[3].surgicalprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.surgicallist[3].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men yes-marg">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[4].surgicalimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[4].surgicalimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~ /Single/QuickView/@ViewBag.surgicallist[4].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.surgicallist[4].surgicalname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.surgicallist[4].surgicalprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.surgicallist[4].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men yes-marg">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[5].surgicalimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.surgicallist[5].surgicalimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.surgicallist[5].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.surgicallist[5].surgicalname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.surgicallist[5].surgicalprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.surgicallist[5].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[0].healthimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[0].healthimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.healthcarelist[0].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.healthcarelist[0].healthname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.healthcarelist[0].halthprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.healthcarelist[0].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[1].healthimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[1].healthimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.healthcarelist[1].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"> @ViewBag.healthcarelist[1].healthname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.healthcarelist[1].halthprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.healthcarelist[1].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[2].healthimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[2].healthimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.healthcarelist[2].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.healthcarelist[2].healthname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.healthcarelist[2].halthprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.healthcarelist[2].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[3].healthimage" alt="" class="pro-image-front">
+                                        <img src="/UplodedImages/@ViewBag.healthcarelist[3].healthimage" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/Single/QuickView/@ViewBag.healthcarelist[3].pid" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html">@ViewBag.healthcarelist[3].healthname</a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@ViewBag.healthcarelist[3].halthprice</span>
+                                            <del>$69.71</del>
+                                        </div>
+                                        <a href="~/Checkout/getCart/@ViewBag.healthcarelist[3].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //product-nav -->
+

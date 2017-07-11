@@ -1,0 +1,298 @@
+﻿@{
+    ViewBag.Title = "Oder";
+    // Layout = "~/Views/Shared/_AdminPharmacylayout.cshtml";
+
+    if (Session["Role"] == "user")
+    {
+        Layout = "~/Views/Shared/_Pharmacylayout.cshtml";
+    }
+    else if (Session["Role"] == "admin")
+    {
+        Layout = "~/Views/Shared/_AdminPharmacylayout.cshtml";
+    }
+    else
+    {
+
+        Layout = "~/Views/Shared/_Pharmacylayout.cshtml";
+
+    }
+}
+@{
+    List<mypharmacy.Models.mysingle> l2 = (List<mypharmacy.Models.mysingle>)Session["list"];
+}
+
+@Html.Raw(TempData["msg"]);
+    <div class="headline">
+
+        <h6></h6>
+
+        <h2>Oder Details</h2>
+
+    </div>
+
+     
+
+    <body>
+        <div id="wrap">
+            <div id="accordian">
+                <div class="step" id="step1">
+                    <div class="number">
+                        <span>1</span>
+                    </div>
+                    <div class="title">
+                        <h1>Email Address</h1>
+                    </div>
+                    <div class="modify">
+                        <i class="fa fa-plus-circle"></i>
+                    </div>
+                </div>
+                <div class="content" id="email">
+                    <form class="go-right">
+                        <div>
+                            <input type="email" name="email" value="" id="email" placeholder="Email Address" data-trigger="change" data-validation-minlength="1" data-type="email" data-required="true" data-error-message="Enter a valid email address." /><label for="email">Email Address</label>
+                        </div>
+                       
+                    </form>
+                    
+                </div>
+                <div class="step" id="step2">
+                    <div class="number">
+                        <span>2</span>
+                    </div>
+                    <div class="title">
+                        <h1>Billing Information</h1>
+                    </div>
+                    <div class="modify">
+                        <i class="fa fa-plus-circle"></i>
+                    </div>
+                </div>
+                <div class="content" id="address">
+                    <form class="go-right" method="post" action="~/Home/OderDetail2">
+                        <div>
+                            <input type="text" name="name" value="" id="name" placeholder="John" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your First Name" /><label for="first_name">First Name</label>
+                        </div>
+
+                        <div>
+                            <input type="text" name="telephone" value="" id="telephone" placeholder="(555)-867-5309" data-trigger="change" data-validation-minlength="1" data-type="number" data-required="true" data-error-message="Enter Your Telephone Number" /><label for="telephone">Telephone</label>
+                        </div>
+
+                        <div>
+                            <input type="text" name="address" value="" id="address" placeholder="123 Main Street" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Address" /><label for="Address">Address</label>
+                        </div>
+                        <div>
+                            <input type="text" name="city" value="" id="city" placeholder="Everytown" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing City" /><label for="city">City</label>
+                        </div>
+
+                        <div>
+                            <input type="text" name="City" value="" id="state" placeholder="Punjab" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your state" /><label for="Address">City</label>
+                        </div>
+                        <div>
+                            <input type="text" name="zip" value="" id="zip" placeholder="12345" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Zip Code" /><label for="zip">Zip Code</label>
+                        </div>
+                        <div>
+
+                            <input type="text" name="country" value="" id="country" placeholder="Pakistan" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Country" /><label for="Address">Country/label>
+                        </div>
+                        <div>
+                            <input type="checkbox" />
+                            <label class="same" for="same_as_shipping">Same As Shipping Address</label><span></span>
+                            <label class="same" for="same_as_shipping">Press Ok and See Info Then Press Continue</label><span></span>
+                        </div>
+                        <input type="submit" class="continue" value="Continue" id="con">
+
+                    </form>
+                    <a class="continue" id ="btnok"href="#">Ok</a>
+                </div>
+                <div class="step" id="step3">
+                    <div class="number">
+                        <span>3</span>
+                    </div>
+                    <div class="title">
+                        <h1>Shipping Information</h1>
+                    </div>
+                    <div class="modify">
+                        <i class="fa fa-plus-circle"></i>
+                    </div>
+                </div>
+                <div class="content" id="shipping">
+                    <form>
+                        <div>
+                            <input type="radio" id="shipping_1" value="1" /><label for="shipping_1"> Standard Shipping <span class="price">$4.00</span></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="shipping_2" value="2" /><label for="shipping_2"> Express Shipping <span class="price">$8.00</span></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="shipping_3" value="3" /><label for="shipping_3"> Overnight Shipping <span class="price">$12.00</span></label>
+                        </div>
+                    </form>
+                   
+                </div>
+               
+
+
+                <div class="step" id="step4">
+                    <div class="number">
+                        <span>4</span>
+                    </div>
+                    <div class="title">
+                        <h1>Finalize Order</h1>
+                    </div>
+                    <div class="modify">
+                        <i class="fa fa-plus-circle"></i>
+                    </div>
+                </div>
+                <div class="content" id="final_products">
+                    <div class="left" id="ordered">
+                        <div class="products">
+                            <ul>
+                                @{int j = 0;}
+                                @for (int i = 0; i < l2.Count; i++)
+                                {
+                                    <li >@l2[i].name <i>-</i> <span>@l2[i].price</span></li>
+                                    j = j + @l2[i].price;
+                                }
+                                <li>Total <i>-</i> <span>Rs@(j)</span></li>
+                            </ul>
+                            @*<div class="product_image">
+
+    </div>Rs@(j)
+    <div class="product_details">
+        <span class="product_name">Cherry Bikini</span>
+        <span class="quantity">1</span>
+        <span class="price">$45.00</span>
+    </div>*@
+                        </div>
+                        <div class="totals">
+                            <span class="subtitle">Subtotal <span id="sub_price">Rs@(j)</span></span>
+                            <span class="subtitle">Tax <span id="sub_tax">Rs 50</span></span>
+                            <span class="subtitle">Shipping <span id="sub_ship">Rs 100</span></span>
+                        </div>
+                        <div class="final">
+                            <span class="title">Total <span id="calculated_total">Rs@((j)+150)</span></span>
+                        </div>
+                    </div>
+                    <div class="right" id="reviewed">
+                        <div class="billing">
+                            <span class="title">Billing:</span>
+                            <div class="address_reviewed">
+                                <span id="bname" class="name"></span>
+                                <span id="baddres"class="address"></span>
+              
+                                <span  id ="bphone"class="phone"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="shipping">
+                            <span class="title">Shipping:</span>
+                            <div class="address_reviewed">
+                                <span id="sname" class="name"></span>
+                           
+                                <span id="saddres" class="location"></span>
+                                <span id="sphone" class="phone"></span>
+                            </div>
+                        </div>
+                        <div class="payment">
+                            <span class="title">Payment:</span>
+                            <div class="payment_reviewed">
+                                <span class="method">Visa</span>
+                                <span class="number_hidden">xxxx-xxxx-xxxx-1111</span>
+                            </div>
+                        </div>
+                        
+
+
+                    </div>
+                    <div class="step" id="step5">
+                        <div class="number">
+                            <span>5</span>
+                        </div>
+                        <div class="title">
+                            <h1>Payment Information</h1>
+                        </div>
+                        <div class="modify">
+                            <i class="fa fa-plus-circle"></i>
+                        </div>
+                    </div>
+                    <div class="content" id="payment">
+                        <div class="left credit_card">
+
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="go-right">
+                                
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="PB8FWCBHHG698">
+                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>
+                            <div>
+                                <input type="checkbox" />
+                                <label class="same" for="same_as_shipping">Cash On Delivry</label><span></span>
+                            </div>
+
+                        </div>
+                        <div class="right">
+                            <div class="accepted">
+                                <span><img src="~/images/Z5HVIOt.png"></span>
+                                <span><img src="~/images/Le0Vvgx.png"></span>
+                                <span><img src="~/images/D2eQTim.png"></span>
+                                <span><img src="~/images/Pu4e7AT.png"></span>
+                                <span><img src="~/images/ewMjaHv.png"></span>
+                                <span><img src="~/images/3LmmFFV.png"></span>
+                            </div>
+                            <div class="secured">
+                                <img class="lock" src="~/images/lock.png">
+                                <p class="security info">What, well you mean like a date? Doc? Am I to understand you're still hanging around with Doctor Emmett Brown, McFly? Tardy slip for you, Miss Parker. And one for you McFly I believe that makes four in a row. Now let me give you a nickle's worth of advice, young man. This so called Doctor Brown is dangerous, he's a real nuttcase.</p>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                   
+                    <script>
+                        $(document).ready(function () {
+                            $("#btnok").click(function () {
+
+
+                                var nam = $("#name").val();
+                                var phn = $("#telephone").val();
+                                var add = $("address").val();
+                               
+                                $("#bname").text(nam);
+                                $("#bphone").text(phn);
+                                $("baddres").text(add);
+                                $("#sname").text(nam);
+                                $("#sphone").text(phn);
+                                $("saddres").text(add);
+
+
+
+
+                                return false;
+                            });
+
+                        });
+                    </script>
+                    <script>
+
+                        $(document).ready(function () {
+
+
+
+                            $('#con').click(function () {
+
+                                var mail = $('#email').val();
+
+
+                                //alert('User Name ='+ userName);
+
+                                $.getJSON("/Home/OderDetail2?email=" + mail, function (data) {
+
+                              
+                                });
+
+                            });
+                        });
+                    </script>
+
+    

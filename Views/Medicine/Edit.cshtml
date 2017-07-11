@@ -1,0 +1,55 @@
+﻿@model mypharmacy.Models.mysingle
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminPharmacyLayout.cshtml";
+}
+@Html.Raw(TempData["msg"]);
+@using (Html.BeginForm())
+{
+
+
+    <fieldset>
+        <legend>product info</legend>
+
+        @Html.HiddenFor(model => model.pid)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.name)
+
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.price)
+
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.image)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.image)
+
+        </div>
+        <label >Category:</label>
+        
+            <input type="text" name="ctgry" value="@ViewBag.catgory">
+     
+
+        <p>
+            <input type="submit" value="Update" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back", "~/Medicine/ViewMedicine")
+</div>
+
+
+

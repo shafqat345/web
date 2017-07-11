@@ -1,0 +1,318 @@
+﻿@model List<mypharmacy.Models.surgical>
+
+@{
+    ViewBag.Title = "Surgical";
+    if(Session["Role"] == "user")
+    { 
+    Layout = "~/Views/Shared/_Pharmacylayout.cshtml";
+    }
+    else if(Session["Role"] == "admin")
+    { 
+    Layout = "~/Views/Shared/_AdminPharmacylayout.cshtml";
+    }
+    else
+    {
+      
+            Layout = "~/Views/Shared/_Pharmacylayout.cshtml";
+        
+    }
+}
+
+
+<!-- mens -->
+<div class="men-wear">
+    <div class="container">
+        <div class="col-md-4 products-left">
+            <div class="filter-price">
+                <h3>Filter By Price</h3>
+                <ul class="dropdown-menu6">
+                    <li>
+                        <div id="slider-range"></div>
+                        <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+                    </li>
+                </ul>
+                <!---->
+                <script type='text/javascript'>
+//<![CDATA[
+                    $(window).load(function () {
+                        $("#slider-range").slider({
+                            range: true,
+                            min: 0,
+                            max: 9000,
+                            values: [1000, 7000],
+                            slide: function (event, ui) {
+                                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                            }
+                        });
+                        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+                    });//]]>
+
+                </script>
+                <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
+                <!---->
+            </div>
+            <div class="css-treeview">
+                <h4>Categories</h4>
+                <ul class="tree-list-pad">
+                    <li>
+                        <input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><span></span>Surgical Instrument</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="item-0-0" /><label for="item-0-0">Diagnostic Instruments</label>
+                                <ul>
+                                    <li><a href="~/Surgical/Surgical">Body Fat Analyser</a></li>
+                                    <li><a href="~/Surgical/Surgical">Handheld Refractometer</a></li>
+                                    <li><a href="~/Surgical/Surgical">Hemacytometer</a></li>
+                                    <li><a href="~/Surgical/Surgical">Dynatest Dynamomete</a></li>
+                                    <li><a href="~/Surgical/Surgical">Pediatric Stethoscope</a></li>
+                                    <li><a href="~/Surgical/Surgical">ECG Caliper</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="item-0-1" /><label for="item-0-1">Laboratory Instruments</label>
+                                <ul>
+                                    <li><a href="~/Surgical/Surgical">Mini Rocker Shaker</a></li>
+                                    <li><a href="~/Surgical/Surgical">Orbital Shaker</a></li>
+                                    <li><a href="~/Surgical/Surgical">Overhead Stirrer</a></li>
+                                    <li><a href="~/Surgical/Surgical">Magnatic Stirrer</a></li>
+                                    <li><a href="~/Surgical/Surgical">Chemical Cart</a></li>
+                                    <li><a href="~/Surgical/Surgical">Hot Plate</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="item-0-2" /><label for="item-0-2">Imaging Instruments</label>
+                                <ul>
+                                    <li><a href="~/Surgical/Surgical">Ultrasound</a></li>
+                                    <li><a href="~/Surgical/Surgical">X-Ray Machine</a></li>
+                                    <li><a href="~/Surgical/Surgical">CT scanner</a></li>
+                                   
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Surgery Instruments</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" checked="checked" id="item-1-0" /><label for="item-1-0">New Arrivals</label>
+                                <ul>
+
+                                    <li><a href="~/Surgical/Surgical">Fehland Intestinal Clamp</a></li>
+                                    <li><a href="~/Surgical/Surgical">Burnnur Intestinal Clamp</a></li>
+                                    <li><a href="~/Surgical/Surgical">Collin Intestinal Clamp</a></li>
+                                    <li><a href="~/Surgical/Surgical">PAYR Clamp</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" checked="checked" id="item-2" /><label for="item-2">More Collections</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="item-2-0" /><label for="item-2-0">ENT Instruments</label>
+                                <ul>
+                                    <li><a href="~/Surgical/Surgical">Trocar and Cannula</a></li>
+                                    <li><a href="~/Surgical/Surgical">Antrum Currette</a></li>
+                                    <li><a href="~/Surgical/Surgical">Freer Elevator</a></li>
+                                    <li><a href="~/Surgical/Surgical">Sickle knife</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="item-2-1" /><label for="item-2-1">Ophthalmic Instrument</label>
+                                <ul>
+                                    <li><a href="~/Surgical/Surgical">Slit Lamp</a></li>
+                                    <li><a href="~/Surgical/Surgical">Sinoscope</a></li>
+                                    <li><a href="~/Surgical/Surgical">Photo Slit Lamp</a></li>
+                                    <li><a href="~/Surgical/Surgical">Castroviejo Caliper</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="item-2-2" /><label for="item-2-2">Thoracic Instruments</label>
+                                <ul>
+                                    <li><a href="~/Surgical/Surgical">Approximator</a></li>
+                                    <li><a href="~/Surgical/Surgical">Miniature Aorta clamp</a></li>
+                                    <li><a href="~/Surgical/Surgical">Bulldog Clamps</a></li>
+                                    <li><a href="~/Surgical/Surgical">Tubing clamp</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="community-poll">
+                <h4>Community Poll</h4>
+                <div class="swit form">
+                    <form>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio" checked=""><i></i>More convenient for shipping and delivery</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Lower Price</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Track your item</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Bigger Choice</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>More colors to choose</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Secured Payment</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Money back guaranteed</label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i>Others</label> </div></div>
+                        <input type="submit" value="SEND">
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-8 products-right">
+            <h5>Product Compare(0)</h5>
+            <div class="sort-grid">
+                <div class="sorting">
+                    <h6>Sort By</h6>
+                    <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                        <option value="null">Default</option>
+                        <option value="null">Name(A - Z)</option>
+                        <option value="null">Name(Z - A)</option>
+                        <option value="null">Price(High - Low)</option>
+                        <option value="null">Price(Low - High)</option>
+                        <option value="null">Model(A - Z)</option>
+                        <option value="null">Model(Z - A)</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="sorting">
+                    <h6>Showing</h6>
+                    <select id="country2" onchange="change_country(this.value)" class="frm-field required sect">
+                        <option value="null">7</option>
+                        <option value="null">14</option>
+                        <option value="null">28</option>
+                        <option value="null">35</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="men-wear-top">
+                <script src="~/Scripts/responsiveslides.min.js"></script>
+                <script>
+                    // You can also use "$(window).load(function() {"
+                    $(function () {
+                        // Slideshow 4
+                        $("#slider3").responsiveSlides({
+                            auto: true,
+                            pager: true,
+                            nav: false,
+                            speed: 500,
+                            namespace: "callbacks",
+                            before: function () {
+                                $('.events').append("<li>before event fired.</li>");
+                            },
+                            after: function () {
+                                $('.events').append("<li>after event fired.</li>");
+                            }
+                        });
+                    });
+                </script>
+                <div id="top" class="callbacks_container">
+                    <ul class="rslides" id="slider3">
+                        <li>
+                            <img class="img-responsive" src="~/Images/surgicalslider1.jpg" alt=" " />
+                        </li>
+                        <li>
+                            <img class="img-responsive" src="~/Images/surgicalslider2.jpg" alt=" " />
+                        </li>
+                        <li>
+                            <img class="img-responsive" src="~/Images/surgicalslider3.jpg" alt=" " />
+                        </li>
+                        <li>
+                            <img class="img-responsive" src="~/Images/surgicalslider4.jpg" alt=" " />
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="men-wear-bottom">
+                <div class="col-sm-4 men-wear-left">
+                    <img class="img-responsive" src="~/Images/surgicalheader.jpg" alt=" " />
+                </div>
+                <div class="col-sm-8 men-wear-right">
+                    <h4>Surgical Instrument Collections</h4>
+                    <p>
+                        Smart Pharmacy enjoys the trust of consumers, doctors and surgeons alike.
+                        Keeping high quality standards in mind, we also provide most of the
+                        surgical products which are used during surgeries or post ops.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="col-md-4 product-men no-pad-men">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                        <div class="men-thumb-item">
+                            <img src="~/UplodedImages/@Model[i].surgicalimage" alt="" class="pro-image-front">
+                            <img src="~/UplodedImages/@Model[i].surgicalimage" alt="" class="pro-image-back">
+                            <div class="men-cart-pro">
+                                <div class="inner-men-cart-pro">
+                                    <a href="~/Single/QuickView/@Model[i].pid" class="link-product-add-cart">Quick View</a>
+                                </div>
+                            </div>
+                            <span class="product-new-top">New</span>
+
+                        </div>
+                        <div class="item-info-product ">
+                            <h4><a href="single.html"></a>@Model[i].surgicalname</h4>
+                            <div class="info-product-price">
+                                <span class="item_price">Rs @Model[i].surgicalprice</span>
+                                <del>Rs 115</del>
+                            </div>
+                            <a href="~/Checkout/getCart/@Model[i].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="single-pro">
+            @for (int i = 3; i < 11; i++)
+            {
+                <div class="col-md-3 product-men yes-marg">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                        <div class="men-thumb-item">
+                            <img src="~/UplodedImages/@Model[i].surgicalimage" alt="" class="pro-image-front">
+                            <img src="~/UplodedImages/@Model[i].surgicalimage" alt="" class="pro-image-back">
+                            <div class="men-cart-pro">
+                                <div class="inner-men-cart-pro">
+                                    <a href="~/Single/QuickView/@Model[i].pid" class="link-product-add-cart">Quick View</a>
+                                </div>
+                            </div>
+                            <span class="product-new-top">New</span>
+
+                        </div>
+                        <div class="item-info-product ">
+                            <h4><a href="single.html">@Model[i].surgicalname </a></h4>
+                            <div class="info-product-price">
+                                <span class="item_price">@Model[i].surgicalprice</span>
+                                <del>$120.71</del>
+                            </div>
+                            <a href="~/Checkout/getCart/@Model[i].pid" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="clearfix"></div>
+        </div>
+        <div class="pagination-grid text-right">
+            <ul class="pagination paging">
+                <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //mens -->
+<!-- //product-nav -->
+

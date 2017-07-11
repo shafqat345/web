@@ -1,0 +1,50 @@
+﻿@model mypharmacy.Models.mysingle
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_AdminPharmacyLayout.cshtml";
+}
+@Html.Raw(TempData["msg"]);
+
+
+@using (Html.BeginForm())
+{
+
+
+    <fieldset>
+       
+<legend> Details of Product</legend>
+            
+
+        @Html.HiddenFor(model => model.Id)
+
+       <div id="center">
+           <div>
+
+
+Product Id: @Model.pid;
+           </div>
+
+        <div>
+
+            Name:  @Model.name;
+        </div>
+
+        <div>
+        Price: @Model.price;
+        </div>
+
+
+        <div>
+       Image : @Model.image;
+        </div>
+           </div>
+    </fieldset>
+    
+
+ <p id="center">
+     <a href="~/Medicine/Delete/@Model.pid">Delete</a>
+        @Html.ActionLink("Back", "ViewMedicine")
+     <a href="~/Medicine/Edit/@Model.pid">Update</a>
+ </p>
+   
+}
